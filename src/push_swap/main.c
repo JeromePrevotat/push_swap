@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_int.c		                                    :+:      :+:    :+:   */
+/*   main.c		   	                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,56 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-void	swap_int(int *a, int *b)
+int	main(int argc, char **argv)
 {
-	int	tmp;
+	t_pile	*pile_a;
+	t_pile	*pile_b;
+	char	**arg_tab;
+	char	*arg;
 
-	if (a && b)
+	arg = NULL;
+	if (argc < 2)
+		exit(0);
+	else
 	{
-		tmp = *a;
-		*a = *b;
-		*b = tmp;
+		arg = get_arg(argc, argv, arg);
+		if ((arg_tab = check_arg(arg)) == NULL)
+			ft_error();
+		if(!(pile_a = (t_pile *)malloc(1 * sizeof(t_pile)))
+			|| !(pile_b = (t_pile *)malloc(1 * sizeof(t_pile))))
+			return (ERROR);
+		if (set_pile(arg_tab, pile_a, pile_b) == ERROR)
+			ft_error();
+		push_swap(pile_a, pile_b);
 	}
-}
-
-int		split(int *tab, int start, int end, int pivot)
-{
-	int	i;
-	int j;
-
-	swap_int(&tab[pivot], &tab[end]);
-	j = start;
-	i = 0;
-	while (i < end && j < end)
-	{
-		if (tab[i] < tab[end])
-		{
-			swap_int(&tab[i], &tab[j]);
-			j++;
-		}
-		i++;
-	}
-	swap_int(&tab[end], &tab[j]);
-	return (j);
-}
-
-int		quicksort(int *tab, int start, int end)
-{
-	int	pivot;
-
-	pivot = 0;
-	if (start < end)
-	{
-		pivot = split(tab, start, end, pivot);
-		ft_putnbr(pivot);
-		ft_putchar('\n');
-		if (pivot - 1 <= end)
-			quicksort(tab, start, pivot - 1);
-		if (pivot + 1 >= start)
-			quicksort(tab, pivot + 1, end);
-		return (1);
-	}
+	if (arg != NULL)
+		free(arg);
 	return (0);
+}
+
+void push_swap(t_pile *pile_a, t_pile *pile_b)
+{
+	size_t	i;
+
+	i = 0;
+	quicksort(pile_a, 0, pile_a->size - 1, pile_b);
+	ft_putendl("Pile A :");
+	print_tab(pile_a);
+	ft_putendl("Pile B :");
+	print_tab(pile_b);
 }

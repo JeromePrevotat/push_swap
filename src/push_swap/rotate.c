@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c		   	                                    :+:      :+:    :+:   */
+/*   rotate.c	   	                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,61 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+void	rotate_a(t_pile *pile_a)
 {
-	int	*tab;
-	int i;
-	int size;
+	size_t	i;
 
-	(void)argc;
-	(void)argv;
-	/*size = 10;
-	if (!(tab = (int *)malloc(size * sizeof(int))))
-		return (-1);
+	if (!pile_a->pile || pile_a->size < 2)
+		return ;
 	i = 0;
-	while (i < size)
+	while (i < pile_a->size - 1)
 	{
-		tab[i] = i;
+		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
 		i++;
 	}
-	i = 1;
-	while (i < size)
-	{
-		if (i % 2 == 0)
-			tab[i] = -tab[i];
-		i++;
-	}*/
-
-	size = 5;
-	if (!(tab = (int *)malloc(size * sizeof(int))))
-		return (-1);
-	tab[0] = -58;
-	tab[1] = 0;
-	tab[2] = 42;
-	tab[3] = -100;
-	tab[4] = 58;
-
-	i = 0;
-	ft_putendl("INITIAL ORDER :");
-	print_tab(tab, size);
-	quicksort(tab, 0, size);
-	ft_putendl("NEW ORDER :");
-	print_tab(tab, size);
-	return (0);
+	ft_putendl("ra");
 }
 
-void	print_tab(int *tab, int size)
+void	rotate_b(t_pile *pile_b)
 {
-	int	i;
+	size_t	i;
 
+	if (!pile_b->pile || pile_b->size < 2)
+		return ;
 	i = 0;
-	while (i < size)
+	while (i < pile_b->size - 1)
 	{
-		ft_putnbr(tab[i]);
-		ft_putstr(" // ");
+		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
 		i++;
 	}
-	ft_putchar('\n');
+	ft_putendl("rb");
+}
+
+void	rotate_ab(t_pile *pile_a, t_pile *pile_b)
+{
+	size_t	i;
+
+	i = 0;
+	if (!pile_a->pile || pile_a->size < 2 || !pile_b->pile || pile_b->size < 2)
+		return ;
+	while (i < pile_a->size - 1)
+	{
+		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
+		i++;
+	}
+	i = 0;
+	while (i < pile_b->size - 1)
+	{
+		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
+		i++;
+	}
+	ft_putendl("rr");
 }
