@@ -60,7 +60,7 @@ char	**check_arg(char *arg)
 	return (arg_tab);
 }
 
-int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b)
+int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 {
 	size_t	i;
 	size_t	arg_size;
@@ -84,6 +84,8 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b)
 	}
 	if (check_doublons(pile_a) == ERROR)
 		return (ERROR);
+	piles->p_a = pile_a;
+	piles->p_b = pile_b;
 	return (TRUE);
 }
 

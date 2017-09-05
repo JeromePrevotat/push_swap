@@ -16,6 +16,15 @@
 # define FALSE 0
 # define ERROR -1
 
+#define RED		"\x1B[31m"
+#define GREEN	"\x1B[32m"
+#define YELLOW	"\x1B[33m"
+#define BLUE	"\x1B[34m"
+#define MAGENTA	"\x1B[35m"
+#define CYAN	"\x1B[36m"
+#define WHITE	"\x1B[37m"
+#define RESET	"\x1B[0m"
+
 # include <stdio.h>
 # include "../libft/libft.h"
 
@@ -25,19 +34,25 @@ typedef struct	s_pile
 	int			*pile;
 }				t_pile;
 
+typedef struct	s_p
+{
+	t_pile		*p_a;
+	t_pile		*p_b;
+}				t_p;
+
 //Push_swap
-void	push_swap(t_pile *pile_a, t_pile *pile_b);
+void	push_swap(t_p *piles);
 
 //Sort_int.c
 //int		split(int *tab, int start, int end, int pivot);
 //int		quicksort(int *tab, int start, int end);
-int		split(t_pile *pile_a, int start, int end, int pivot);
-int		quicksort(t_pile *pile_a, int start, int end, t_pile *pile_b);
+int		split(t_p *piles, int start, int end, int pivot);
+int		quicksort(t_p *piles, int start, int end);
 
 //Parsing.c
 char	*get_arg(int argc, char **argv, char *arg);
 char	**check_arg(char *arg);
-int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b);
+int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
 
 //Rotate.c

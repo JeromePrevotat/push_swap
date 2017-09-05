@@ -14,6 +14,7 @@
 
 int	main(int argc, char **argv)
 {
+	t_p		*piles;
 	t_pile	*pile_a;
 	t_pile	*pile_b;
 	char	**arg_tab;
@@ -27,26 +28,27 @@ int	main(int argc, char **argv)
 		arg = get_arg(argc, argv, arg);
 		if ((arg_tab = check_arg(arg)) == NULL)
 			ft_error();
-		if(!(pile_a = (t_pile *)malloc(1 * sizeof(t_pile)))
+		if(!(piles = (t_p *)malloc(1 * sizeof(t_p)))
+			|| !(pile_a = (t_pile *)malloc(1 * sizeof(t_pile)))
 			|| !(pile_b = (t_pile *)malloc(1 * sizeof(t_pile))))
 			return (ERROR);
-		if (set_pile(arg_tab, pile_a, pile_b) == ERROR)
+		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
-		push_swap(pile_a, pile_b);
+		push_swap(piles);
 	}
 	if (arg != NULL)
 		free(arg);
 	return (0);
 }
 
-void push_swap(t_pile *pile_a, t_pile *pile_b)
+void push_swap(t_p *piles)
 {
 	size_t	i;
 
 	i = 0;
-	quicksort(pile_a, 0, pile_a->size - 1, pile_b);
+	quicksort(piles, 0, piles->p_a->size - 1);
 	ft_putendl("Pile A :");
-	print_tab(pile_a);
+	print_tab(piles->p_a);
 	ft_putendl("Pile B :");
-	print_tab(pile_b);
+	print_tab(piles->p_b);
 }
