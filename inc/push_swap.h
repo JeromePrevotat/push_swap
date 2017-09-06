@@ -38,6 +38,7 @@ typedef struct	s_p
 {
 	t_pile		*p_a;
 	t_pile		*p_b;
+	int			max;
 }				t_p;
 
 //Push_swap
@@ -48,6 +49,8 @@ void	push_swap(t_p *piles);
 //int		quicksort(int *tab, int start, int end);
 int		split(t_p *piles, int start, int end, int pivot);
 int		quicksort(t_p *piles, int start, int end);
+int		sort_left(t_p *piles, int start, int end, int pivot);
+int		sort_rigth(t_p *piles, int start, int end, int pivot);
 
 //Parsing.c
 char	*get_arg(int argc, char **argv, char *arg);
@@ -74,7 +77,11 @@ void	swap_ab(t_pile *pile_a, t_pile *pile_b);
 void	push_a(t_pile *pile_a, t_pile *pile_b);
 void	push_b(t_pile *pile_a, t_pile *pile_b);
 
+//Reset.c
+void	reset(t_p *piles);
+
 //Utils.c
+void	find_max(t_p *piles);
 void	swap_int(int *a, int *b);
 void	print_tab(t_pile *pile);
 void	ft_error(void);

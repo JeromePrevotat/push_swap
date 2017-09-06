@@ -12,6 +12,7 @@ SRCS2 += ./src/push_swap/rotate.c
 SRCS2 += ./src/push_swap/reverse_rotate.c
 SRCS2 += ./src/push_swap/swap.c
 SRCS2 += ./src/push_swap/push.c
+SRCS2 += ./src/push_swap/reset.c
 SRCS2 += ./src/push_swap/utils.c
 
 INC += ./inc/push_swap.h

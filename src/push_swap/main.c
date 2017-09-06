@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 void push_swap(t_p *piles)
 {
 	size_t	i;
-
+	find_max(piles);
 	i = 0;
 	quicksort(piles, 0, piles->p_a->size - 1);
 	ft_putendl("Pile A :");
