@@ -44,9 +44,12 @@ int	main(int argc, char **argv)
 void push_swap(t_p *piles)
 {
 	size_t	i;
+
 	find_max(piles);
+	find_min(piles);
+	piles->min_index = 0;
 	i = 0;
-	quicksort(piles, 0, piles->p_a->size - 1);
+	sort_piles(piles);
 	ft_putendl("Pile A :");
 	print_tab(piles->p_a);
 	ft_putendl("Pile B :");
