@@ -82,7 +82,7 @@ void	reset(t_p *piles);
 void	find_max(t_p *piles);
 void	find_min(t_p *piles);
 void	new_min(t_p *piles);
-int		new_min_index(t_p *piles);
+void	new_min_index(t_p *piles);
 int		check(t_p *piles);
 void	swap_int(int *a, int *b);
 void	print_tab(t_pile *pile);

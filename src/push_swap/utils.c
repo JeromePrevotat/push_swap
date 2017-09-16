@@ -40,18 +40,21 @@ void	find_min(t_p *piles)
 	}
 }
 
-int		new_min_index(t_p *piles)
+void	new_min_index(t_p *piles)
 {
 	size_t	i;
 
-	i = piles->min_index;
-	while (i < piles->p_a->size)
+	if ((size_t)piles->min_index == piles->p_a->size - 1)
+		return;
+	piles->min_index++;
+	i = piles->min_index + 1;
+	while (i < piles->p_a->size - 1)
 	{
-		if (piles->p_a->pile[i] > piles->p_a->pile[i + 1])
-			return (i);
+		if (piles->p_a->pile[i] < piles->p_a->pile[piles->min_index])
+			return ;
 		i++;
 	}
-	return (i);
+	new_min_index(piles);
 }
 
 void	new_min(t_p *piles)
@@ -59,7 +62,7 @@ void	new_min(t_p *piles)
 	size_t	i;
 	int		min;
 
-	i = piles->min_index;
+	i = piles->min_index + 1;
 	min = piles->p_a->pile[i];
 	while (i < piles->p_a->size)
 	{

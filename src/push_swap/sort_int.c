@@ -31,8 +31,8 @@ void	sort_piles(t_p *piles)
 		}
 		else
 		{
-			piles->min_index = new_min_index(piles);
 			new_min(piles);
+			new_min_index(piles);
 		}
 	}
 }
@@ -42,11 +42,11 @@ void	start_sort(t_p *piles)
 	int	i;
 	int	pivot;
 
-	pivot = piles->p_b->pile[0];
 	push_b(piles->p_a, piles->p_b);
+	pivot = piles->p_b->pile[0];
+	i = 0;
 	while (piles->p_a->pile[0] != piles->max)
 	{
-		i = 0;
 		if (piles->p_a->pile[0] < pivot)
 			push_b(piles->p_a, piles->p_b);
 		else
