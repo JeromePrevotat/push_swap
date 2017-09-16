@@ -21,8 +21,8 @@ void reset(t_p *piles)
 		i++;
 	if ((piles->p_a->size / 2) - i > 0)
 		while (piles->p_a->pile[piles->p_a->size - 1] != piles->max)
-			rotate_a(piles->p_a);
+			rotate_a(piles->p_a, 1);
 	else
 		while (piles->p_a->pile[piles->p_a->size - 1] != piles->max)
-			r_rotate_a(piles->p_a);
+			r_rotate_a(piles->p_a, 1);
 }

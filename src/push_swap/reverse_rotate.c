@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-void	r_rotate_a(t_pile *pile_a)
+void	r_rotate_a(t_pile *pile_a, int print)
 {
 	size_t	i;
 
@@ -24,10 +24,11 @@ void	r_rotate_a(t_pile *pile_a)
 		swap_int(&pile_a->pile[i], &pile_a->pile[i - 1]);
 		i--;
 	}
-	ft_putendl("rra");
+	if (print == 1)
+		ft_putendl("rra");
 }
 
-void	r_rotate_b(t_pile *pile_b)
+void	r_rotate_b(t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -39,10 +40,11 @@ void	r_rotate_b(t_pile *pile_b)
 		swap_int(&pile_b->pile[i], &pile_b->pile[i - 1]);
 		i--;
 	}
-	ft_putendl("rrb");
+	if (print == 1)
+		ft_putendl("rrb");
 }
 
-void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b)
+void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -60,5 +62,6 @@ void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b)
 		swap_int(&pile_b->pile[i], &pile_b->pile[i - 1]);
 		i--;
 	}
-	ft_putendl("rrr");
+	if (print == 1)
+		ft_putendl("rrr");
 }

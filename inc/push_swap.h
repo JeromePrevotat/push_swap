@@ -63,23 +63,23 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
 
 //Rotate.c
-void	rotate_a(t_pile *pile_a);
-void	rotate_b(t_pile *pile_b);
-void	rotate_ab(t_pile *pile_a, t_pile *pile_b);
+void	rotate_a(t_pile *pile_a, int print);
+void	rotate_b(t_pile *pile_b, int print);
+void	rotate_ab(t_pile *pile_a, t_pile *pile_b, int print);
 
 //Reverse_rotate.c
-void	r_rotate_a(t_pile *pile_a);
-void	r_rotate_b(t_pile *pile_b);
-void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b);
+void	r_rotate_a(t_pile *pile_a, int print);
+void	r_rotate_b(t_pile *pile_b, int print);
+void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print);
 
 //Swap.c
-void	swap_a(t_pile *pile_a);
-void	swap_b(t_pile *pile_b);
-void	swap_ab(t_pile *pile_a, t_pile *pile_b);
+void	swap_a(t_pile *pile_a, int print);
+void	swap_b(t_pile *pile_b, int print);
+void	swap_ab(t_pile *pile_a, t_pile *pile_b, int print);
 
 //Push.c
-void	push_a(t_pile *pile_a, t_pile *pile_b);
-void	push_b(t_pile *pile_a, t_pile *pile_b);
+void	push_a(t_pile *pile_a, t_pile *pile_b, int print);
+void	push_b(t_pile *pile_a, t_pile *pile_b, int print);
 
 //Reset.c
 void	reset(t_p *piles);

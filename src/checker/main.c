@@ -48,7 +48,6 @@ void checker(t_p *piles)
 	line = NULL;
 	while (get_next_line(0, &line) == 1)
 	{
-		printf("LINE : >%s<\n", line);
 		exec_line(line, piles);
 		if (line != NULL)
 		{
@@ -56,4 +55,8 @@ void checker(t_p *piles)
 			line = NULL;
 		}
 	}
+	if (check(piles) == 0)
+		ft_putendl("KO");
+	else
+		ft_putendl("OK");
 }

@@ -50,7 +50,7 @@ void push_swap(t_p *piles)
 	if (piles->p_a->size == 2)
 	{
 		if (piles->p_a->pile[0] > piles->p_a->pile[1])
-			swap_a(piles->p_a);
+			swap_a(piles->p_a, 1);
 		else
 			return ;
 	}
@@ -59,8 +59,4 @@ void push_swap(t_p *piles)
 	piles->min_index = 0;
 	i = 0;
 	sort_piles(piles);
-	ft_putendl("Pile A :");
-	print_tab(piles->p_a);
-	ft_putendl("Pile B :");
-	print_tab(piles->p_b);
 }

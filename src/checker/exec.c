@@ -15,26 +15,26 @@
 void exec_line(char *line, t_p *piles)
 {
 	if (ft_strcmp(line, "ra") == 0)
-		rotate_a(piles->p_a);
+		rotate_a(piles->p_a, 0);
 	else if (ft_strcmp(line, "rb") == 0)
-		rotate_b(piles->p_b);
+		rotate_b(piles->p_b, 0);
 	else if (ft_strcmp(line, "pa") == 0)
-		push_a(piles->p_a, piles->p_b);
+		push_a(piles->p_a, piles->p_b, 0);
 	else if (ft_strcmp(line, "pb") == 0)
-		push_b(piles->p_a, piles->p_b);
+		push_b(piles->p_a, piles->p_b, 0);
 	else if (ft_strcmp(line, "rra") == 0)
-		r_rotate_a(piles->p_a);
+		r_rotate_a(piles->p_a, 0);
 	else if (ft_strcmp(line, "rrb") == 0)
-		r_rotate_b(piles->p_b);
+		r_rotate_b(piles->p_b, 0);
 	else if (ft_strcmp(line, "rr") == 0)
 	{
-		rotate_a(piles->p_a);
-		rotate_b(piles->p_b);
+		rotate_a(piles->p_a, 0);
+		rotate_b(piles->p_b, 0);
 	}
 	else if (ft_strcmp(line, "rrr") == 0)
 	{
-		r_rotate_a(piles->p_a);
-		r_rotate_b(piles->p_b);
+		r_rotate_a(piles->p_a, 0);
+		r_rotate_b(piles->p_b, 0);
 	}
 	else
 		ft_error();

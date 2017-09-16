@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-void push_a(t_pile *pile_a, t_pile *pile_b)
+void push_a(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -33,10 +33,11 @@ void push_a(t_pile *pile_a, t_pile *pile_b)
 	}
 	pile_b->size--;
 	pile_a->size++;
-	ft_putendl("pa");
+	if (print == 1)
+		ft_putendl("pa");
 }
 
-void push_b(t_pile *pile_a, t_pile *pile_b)
+void push_b(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -57,5 +58,6 @@ void push_b(t_pile *pile_a, t_pile *pile_b)
 	}
 	pile_a->size--;
 	pile_b->size++;
-	ft_putendl("pb");
+	if (print == 1)
+		ft_putendl("pb");
 }

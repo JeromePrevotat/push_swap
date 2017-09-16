@@ -24,7 +24,7 @@ void	sort_piles(t_p *piles)
 		{
 			while (i < piles->min_index)
 			{
-				rotate_a(piles->p_a);
+				rotate_a(piles->p_a, 1);
 				i++;
 			}
 			start_sort(piles);
@@ -42,28 +42,28 @@ void	start_sort(t_p *piles)
 	int	i;
 	int	pivot;
 
-	push_b(piles->p_a, piles->p_b);
+	push_b(piles->p_a, piles->p_b, 1);
 	pivot = piles->p_b->pile[0];
 	i = 0;
 	while (piles->p_a->pile[0] != piles->max)
 	{
 		if (piles->p_a->pile[0] < pivot)
-			push_b(piles->p_a, piles->p_b);
+			push_b(piles->p_a, piles->p_b, 1);
 		else
-			rotate_a(piles->p_a);
+			rotate_a(piles->p_a, 1);
 	}
-	r_rotate_b(piles->p_b);
-	rotate_a(piles->p_a);
+	r_rotate_b(piles->p_b, 1);
+	rotate_a(piles->p_a, 1);
 	while (i < piles->min_index)
 	{
-		rotate_a(piles->p_a);
+		rotate_a(piles->p_a, 1);
 		i++;
 	}
 	while (piles->p_b->size > 0)
-		push_a(piles->p_a, piles->p_b);
+		push_a(piles->p_a, piles->p_b, 1);
 	while (i > 0)
 	{
-		r_rotate_a(piles->p_a);
+		r_rotate_a(piles->p_a, 1);
 		i--;
 	}
 }

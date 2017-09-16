@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-void swap_a(t_pile *pile_a)
+void swap_a(t_pile *pile_a, int print)
 {
 	int	tmp;
 
@@ -21,10 +21,11 @@ void swap_a(t_pile *pile_a)
 	tmp = pile_a->pile[0];
 	pile_a->pile[0] = pile_a->pile[1];
 	pile_a->pile[1] = tmp;
-	ft_putendl("sa");
+	if (print == 1)
+		ft_putendl("sa");
 }
 
-void swap_b(t_pile *pile_b)
+void swap_b(t_pile *pile_b, int print)
 {
 	int	tmp;
 
@@ -33,10 +34,11 @@ void swap_b(t_pile *pile_b)
 	tmp = pile_b->pile[0];
 	pile_b->pile[0] = pile_b->pile[1];
 	pile_b->pile[1] = tmp;
-	ft_putendl("sb");
+	if (print == 1)
+		ft_putendl("sb");
 }
 
-void swap_ab(t_pile *pile_a, t_pile *pile_b)
+void swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	int	tmp;
 
@@ -48,5 +50,6 @@ void swap_ab(t_pile *pile_a, t_pile *pile_b)
 	tmp = pile_b->pile[0];
 	pile_b->pile[0] = pile_b->pile[1];
 	pile_b->pile[1] = tmp;
-	ft_putendl("ss");
+	if (print == 1)
+		ft_putendl("ss");
 }
