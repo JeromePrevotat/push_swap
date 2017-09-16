@@ -5,13 +5,24 @@ MAKE = make
 NAME1 = checker
 NAME2 = push_swap
 
+SRCS1 += ./src/checker/main.c
+SRCS1 += ./src/checker/parsing.c
+SRCS1 += ./src/checker/exec.c
+SRCS1 += ./src/checker/utils.c
+SRCS1 += ./src/push_swap/rotate.c
+SRCS1 += ./src/push_swap/reverse_rotate.c
+SRCS1 += ./src/push_swap/swap.c
+SRCS1 += ./src/push_swap/push.c
+
 SRCS2 += ./src/push_swap/main.c
 SRCS2 += ./src/push_swap/parsing.c
 SRCS2 += ./src/push_swap/sort_int.c
+
 SRCS2 += ./src/push_swap/rotate.c
 SRCS2 += ./src/push_swap/reverse_rotate.c
 SRCS2 += ./src/push_swap/swap.c
 SRCS2 += ./src/push_swap/push.c
+
 SRCS2 += ./src/push_swap/reset.c
 SRCS2 += ./src/push_swap/utils.c
 

@@ -46,6 +46,12 @@ typedef struct	s_p
 //Push_swap
 void	push_swap(t_p *piles);
 
+//Checker.c
+void	checker(t_p *piles);
+
+//Exec.c
+void	exec_line(char *line, t_p *piles);
+
 //Sort_int.c
 void	sort_piles(t_p *piles);
 void	start_sort(t_p *piles);
