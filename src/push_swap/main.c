@@ -45,6 +45,15 @@ void push_swap(t_p *piles)
 {
 	size_t	i;
 
+	if (piles->p_a->size == 1)
+		return ;
+	if (piles->p_a->size == 2)
+	{
+		if (piles->p_a->pile[0] > piles->p_a->pile[1])
+			swap_a(piles->p_a);
+		else
+			return ;
+	}
 	find_max(piles);
 	find_min(piles);
 	piles->min_index = 0;
