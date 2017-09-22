@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c		   	                                    :+:      :+:    :+:   */
+/*   rotate.c	   	                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,46 +10,58 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void swap_a(t_pile *pile_a, int print)
+void	rotate_a(t_pile *pile_a, int print)
 {
-	int	tmp;
+	size_t	i;
 
 	if (!pile_a->pile || pile_a->size < 2)
 		return ;
-	tmp = pile_a->pile[0];
-	pile_a->pile[0] = pile_a->pile[1];
-	pile_a->pile[1] = tmp;
+	i = 0;
+	while (i < pile_a->size - 1)
+	{
+		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
+		i++;
+	}
 	if (print == 1)
-		ft_putendl("sa");
+		ft_putendl("ra");
 }
 
-void swap_b(t_pile *pile_b, int print)
+void	rotate_b(t_pile *pile_b, int print)
 {
-	int	tmp;
+	size_t	i;
 
 	if (!pile_b->pile || pile_b->size < 2)
 		return ;
-	tmp = pile_b->pile[0];
-	pile_b->pile[0] = pile_b->pile[1];
-	pile_b->pile[1] = tmp;
+	i = 0;
+	while (i < pile_b->size - 1)
+	{
+		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
+		i++;
+	}
 	if (print == 1)
-		ft_putendl("sb");
+		ft_putendl("rb");
 }
 
-void swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
+void	rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
-	int	tmp;
+	size_t	i;
 
+	i = 0;
 	if (!pile_a->pile || pile_a->size < 2 || !pile_b->pile || pile_b->size < 2)
 		return ;
-	tmp = pile_a->pile[0];
-	pile_a->pile[0] = pile_a->pile[1];
-	pile_a->pile[1] = tmp;
-	tmp = pile_b->pile[0];
-	pile_b->pile[0] = pile_b->pile[1];
-	pile_b->pile[1] = tmp;
+	while (i < pile_a->size - 1)
+	{
+		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
+		i++;
+	}
+	i = 0;
+	while (i < pile_b->size - 1)
+	{
+		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
+		i++;
+	}
 	if (print == 1)
-		ft_putendl("ss");
+		ft_putendl("rr");
 }

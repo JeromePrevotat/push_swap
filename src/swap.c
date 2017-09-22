@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   swap.c		   	                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,58 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void	r_rotate_a(t_pile *pile_a, int print)
+void swap_a(t_pile *pile_a, int print)
 {
-	size_t	i;
+	int	tmp;
 
 	if (!pile_a->pile || pile_a->size < 2)
 		return ;
-	i = pile_a->size - 1;
-	while (i > 0)
-	{
-		swap_int(&pile_a->pile[i], &pile_a->pile[i - 1]);
-		i--;
-	}
+	tmp = pile_a->pile[0];
+	pile_a->pile[0] = pile_a->pile[1];
+	pile_a->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("rra");
+		ft_putendl("sa");
 }
 
-void	r_rotate_b(t_pile *pile_b, int print)
+void swap_b(t_pile *pile_b, int print)
 {
-	size_t	i;
+	int	tmp;
 
 	if (!pile_b->pile || pile_b->size < 2)
 		return ;
-	i = pile_b->size - 1;
-	while (i > 0)
-	{
-		swap_int(&pile_b->pile[i], &pile_b->pile[i - 1]);
-		i--;
-	}
+	tmp = pile_b->pile[0];
+	pile_b->pile[0] = pile_b->pile[1];
+	pile_b->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("rrb");
+		ft_putendl("sb");
 }
 
-void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
+void swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
-	size_t	i;
+	int	tmp;
 
 	if (!pile_a->pile || pile_a->size < 2 || !pile_b->pile || pile_b->size < 2)
 		return ;
-	i = pile_a->size - 1;
-	while (i > 0)
-	{
-		swap_int(&pile_a->pile[i], &pile_a->pile[i - 1]);
-		i--;
-	}
-	i = pile_b->size - 1;
-	while (i > 0)
-	{
-		swap_int(&pile_b->pile[i], &pile_b->pile[i - 1]);
-		i--;
-	}
+	tmp = pile_a->pile[0];
+	pile_a->pile[0] = pile_a->pile[1];
+	pile_a->pile[1] = tmp;
+	tmp = pile_b->pile[0];
+	pile_b->pile[0] = pile_b->pile[1];
+	pile_b->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("rrr");
+		ft_putendl("ss");
 }

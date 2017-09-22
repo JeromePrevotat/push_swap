@@ -93,5 +93,8 @@ int		check(t_p *piles);
 void	swap_int(int *a, int *b);
 void	print_tab(t_pile *pile);
 void	ft_error(void);
+void	free_ressources(t_p *piles, char **arg_tab, char *arg);
+void	free_piles(t_p *piles);
+void	free_arg(char **arg_tab);
 
 #endif

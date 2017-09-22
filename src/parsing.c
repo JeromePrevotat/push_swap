@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 char	*get_arg(int argc, char **argv, char *arg)
 {
@@ -26,6 +26,7 @@ char	*get_arg(int argc, char **argv, char *arg)
 	}
 	if (!(arg = (char *)malloc(total_size *sizeof(char))))
 		return (NULL);
+	ft_memset(arg, '\0', total_size);
 	i = 1;
 	while (i < argc)
 	{

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -34,29 +34,37 @@ int	main(int argc, char **argv)
 			return (ERROR);
 		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
-		push_swap(piles);
 	}
-	if (arg != NULL)
-		free(arg);
+	checker(piles);
+	free_ressources(piles, arg_tab, arg);
 	return (0);
 }
 
-void push_swap(t_p *piles)
+void checker(t_p *piles)
 {
-	size_t	i;
+	char	*line;
+	int		instruction;
 
-	if (piles->p_a->size == 1)
-		return ;
-	if (piles->p_a->size == 2)
+	instruction = 0;
+	line = NULL;
+	while (get_next_line(0, &line) == 1)
 	{
-		if (piles->p_a->pile[0] > piles->p_a->pile[1])
-			swap_a(piles->p_a, 1);
-		else
-			return ;
+		exec_line(line, piles);
+		if (line != NULL)
+		{
+			free(line);
+			line = NULL;
+		}
+		instruction++;
 	}
-	find_max(piles);
-	find_min(piles);
-	piles->min_index = 0;
-	i = 0;
-	sort_piles(piles);
+	if (line != NULL)
+	{
+		free(line);
+		line = NULL;
+	}
+	if (check(piles) == 0)
+		ft_putendl("KO");
+	else
+		ft_putendl("OK");
+	printf("NB COUPS : %d\n", instruction);
 }
