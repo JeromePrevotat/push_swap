@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void reset(t_p *piles)
+/*void reset(t_p *piles)
 {
 	size_t	i;
 
@@ -25,4 +25,4 @@ void reset(t_p *piles)
 	else
 		while (piles->p_a->pile[piles->p_a->size - 1] != piles->max)
 			r_rotate_a(piles->p_a, 1);
-}
+}*/

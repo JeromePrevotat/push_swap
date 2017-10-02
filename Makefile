@@ -19,6 +19,8 @@ SRCS += ./src/rotate.c
 SRCS += ./src/reverse_rotate.c
 SRCS += ./src/utils.c
 
+SRCS2 += ./src/sort.c
+
 INC += ./inc/push_swap.h
 
 OBJ = $(SRCS:.c=.o)

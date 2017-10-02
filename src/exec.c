@@ -19,29 +19,23 @@ void exec_line(char *line, t_p *piles)
 	else if (ft_strcmp(line, "sb") == 0)
 		swap_b(piles->p_b, 0);
 	else if (ft_strcmp(line, "ra") == 0)
-		rotate_a(piles->p_a, 0);
+		rotate_a(piles, 0);
 	else if (ft_strcmp(line, "rb") == 0)
-		rotate_b(piles->p_b, 0);
+		rotate_b(piles, 0);
 	else if (ft_strcmp(line, "pa") == 0)
-		push_a(piles->p_a, piles->p_b, 0);
+		push_a(piles, 0);
 	else if (ft_strcmp(line, "pb") == 0)
-		push_b(piles->p_a, piles->p_b, 0);
+		push_b(piles, 0);
 	else if (ft_strcmp(line, "rra") == 0)
-		r_rotate_a(piles->p_a, 0);
+		r_rotate_a(piles, 0);
 	else if (ft_strcmp(line, "rrb") == 0)
-		r_rotate_b(piles->p_b, 0);
+		r_rotate_b(piles, 0);
 	else if (ft_strcmp(line, "rr") == 0)
-	{
-		rotate_a(piles->p_a, 0);
-		rotate_b(piles->p_b, 0);
-	}
+		rotate_ab(piles, 0);
 	else if (ft_strcmp(line, "rrr") == 0)
-	{
-		r_rotate_a(piles->p_a, 0);
-		r_rotate_b(piles->p_b, 0);
-	}
+		r_rotate_ab(piles, 0);
 	else if (ft_strcmp(line, "ss") == 0)
-		swap_ab(piles->p_a, piles->p_a, 0);
+		swap_ab(piles->p_a, piles->p_b, 0);
 	else
 		ft_error();
 }

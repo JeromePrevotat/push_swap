@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	r_rotate_a(t_pile *pile_a, int print)
+/*void	r_rotate_a(t_pile *pile_a, int print)
 {
 	size_t	i;
 
@@ -26,9 +26,29 @@ void	r_rotate_a(t_pile *pile_a, int print)
 	}
 	if (print == 1)
 		ft_putendl("rra");
+}*/
+
+void	r_rotate_a(t_p *piles, int print)
+{
+	size_t	i;
+
+	if (!piles->p_a->pile || piles->p_a->size < 2)
+		return ;
+	i = piles->p_a->size - 1;
+	while (i > 0)
+	{
+		swap_int(&piles->p_a->pile[i], &piles->p_a->pile[i - 1]);
+		i--;
+	}
+	//ADDED
+	piles->min_index++;
+	if ((size_t)piles->min_index == piles->p_a->size)
+		piles->min_index = 0;
+	if (print == 1)
+		ft_putendl("rra");
 }
 
-void	r_rotate_b(t_pile *pile_b, int print)
+/*void	r_rotate_b(t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -42,9 +62,25 @@ void	r_rotate_b(t_pile *pile_b, int print)
 	}
 	if (print == 1)
 		ft_putendl("rrb");
+}*/
+
+void	r_rotate_b(t_p *piles, int print)
+{
+	size_t	i;
+
+	if (!piles->p_b->pile || piles->p_b->size < 2)
+		return ;
+	i = piles->p_b->size - 1;
+	while (i > 0)
+	{
+		swap_int(&piles->p_b->pile[i], &piles->p_b->pile[i - 1]);
+		i--;
+	}
+	if (print == 1)
+		ft_putendl("rrb");
 }
 
-void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
+/*void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -60,6 +96,32 @@ void	r_rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
 	while (i > 0)
 	{
 		swap_int(&pile_b->pile[i], &pile_b->pile[i - 1]);
+		i--;
+	}
+	if (print == 1)
+		ft_putendl("rrr");
+}*/
+
+void	r_rotate_ab(t_p *piles, int print)
+{
+	size_t	i;
+
+	if (!piles->p_a->pile || piles->p_a->size < 2 || !piles->p_b->pile || piles->p_b->size < 2)
+		return ;
+	i = piles->p_a->size - 1;
+	while (i > 0)
+	{
+		swap_int(&piles->p_a->pile[i], &piles->p_a->pile[i - 1]);
+		i--;
+	}
+	//ADDED
+	piles->min_index++;
+	if ((size_t)piles->min_index == piles->p_a->size)
+		piles->min_index = 0;
+	i = piles->p_b->size - 1;
+	while (i > 0)
+	{
+		swap_int(&piles->p_b->pile[i], &piles->p_b->pile[i - 1]);
 		i--;
 	}
 	if (print == 1)

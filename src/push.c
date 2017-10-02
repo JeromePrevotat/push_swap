@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void push_a(t_pile *pile_a, t_pile *pile_b, int print)
+/*void push_a(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -35,9 +35,36 @@ void push_a(t_pile *pile_a, t_pile *pile_b, int print)
 	pile_a->size++;
 	if (print == 1)
 		ft_putendl("pa");
+}*/
+
+void push_a(t_p *piles, int print)
+{
+	size_t	i;
+
+	if (!piles->p_a || !piles->p_b || piles->p_b->size == 0)
+		return ;
+	piles->p_a->pile[piles->p_a->size] = piles->p_b->pile[0];
+	i = piles->p_a->size;
+	while (i > 0)
+	{
+		swap_int(&piles->p_a->pile[i], &piles->p_a->pile[i - 1]);
+		i--;
+	}
+	i = 0;
+	while (i < piles->p_b->size - 1)
+	{
+		swap_int(&piles->p_b->pile[i], &piles->p_b->pile[i + 1]);
+		i++;
+	}
+	piles->p_b->size--;
+	piles->p_a->size++;
+	//ADDED
+	piles->min_index++;
+	if (print == 1)
+		ft_putendl("pa");
 }
 
-void push_b(t_pile *pile_a, t_pile *pile_b, int print)
+/*void push_b(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	size_t	i;
 
@@ -58,6 +85,33 @@ void push_b(t_pile *pile_a, t_pile *pile_b, int print)
 	}
 	pile_a->size--;
 	pile_b->size++;
+	if (print == 1)
+		ft_putendl("pb");
+}*/
+
+void	push_b(t_p *piles, int print)
+{
+	size_t	i;
+
+	if (!piles->p_a || !piles->p_b || piles->p_a->size == 0)
+		return ;
+	piles->p_b->pile[piles->p_b->size] = piles->p_a->pile[0];
+	i = piles->p_b->size;
+	while (i > 0)
+	{
+		swap_int(&piles->p_b->pile[i], &piles->p_b->pile[i - 1]);
+		i--;
+	}
+	i = 0;
+	while (i < piles->p_a->size - 1)
+	{
+		swap_int(&piles->p_a->pile[i], &piles->p_a->pile[i + 1]);
+		i++;
+	}
+	piles->p_a->size--;
+	piles->p_b->size++;
+	//ADDED
+	piles->min_index--;
 	if (print == 1)
 		ft_putendl("pb");
 }

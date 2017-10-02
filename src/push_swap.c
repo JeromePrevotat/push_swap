@@ -35,14 +35,14 @@ int	main(int argc, char **argv)
 		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
 		push_swap(piles);
-		printf("PILE A :\n");
-		print_tab(piles->p_a);
+		//printf("PILE A :\n");
+		//print_tab(piles->p_a);
 		free_ressources(piles, arg_tab, arg);
 	}
 	return (0);
 }
 
-void push_swap(t_p *piles)
+/*void push_swap(t_p *piles)
 {
 	size_t	i;
 
@@ -60,4 +60,4 @@ void push_swap(t_p *piles)
 	piles->min_index = 0;
 	i = 0;
 	sort_piles(piles);
-}
+}*/

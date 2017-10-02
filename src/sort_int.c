@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	sort_piles(t_p *piles)
+/*void	sort_piles(t_p *piles)
 {
 	int	i;
 
@@ -48,9 +48,23 @@ void	sort_piles(t_p *piles)
 			new_min(piles);
 		}
 	}
+}*/
+
+
+
+void check_swap(t_p *piles)
+{
+	if (piles->p_a->size >= 2 && piles->p_b->size >= 2
+		&& piles->p_a->pile[0] > piles->p_a->pile[1] && piles->p_a->pile[1] != piles->min
+		&& piles->p_b->pile[0] < piles->p_b->pile[1])
+			swap_ab(piles->p_a, piles->p_b, 1);
+	else if (piles->p_a->pile[0] > piles->p_a->pile[1] && piles->p_a->pile[1] != piles->min)
+			swap_a(piles->p_a, 1);
+	else if (piles->p_b->pile[0] < piles->p_b->pile[1])
+			swap_b(piles->p_b, 1);
 }
 
-void	start_sort(t_p *piles)
+/*void	start_sort(t_p *piles)
 {
 	int	i;
 	int	pivot;
@@ -73,16 +87,10 @@ void	start_sort(t_p *piles)
 		i++;
 	}
 	while (piles->p_b->size > 0)
-	{
-		//if (piles->p_a->pile[0] > piles->p_a->pile[1]
-			//&& piles->p_b->pile[0] > piles->p_a->pile[1]
-			//&& piles->p_a->size >= 2 && piles->p_b->size >= 2)
-			//swap_ab(piles->p_a, piles->p_b, 1);
 		push_a(piles->p_a, piles->p_b, 1);
-	}
 	while (i > 0)
 	{
 		r_rotate_a(piles->p_a, 1);
 		i--;
 	}
-}
+}*/
