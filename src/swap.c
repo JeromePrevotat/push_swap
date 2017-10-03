@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c		   	                                    :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void swap_a(t_pile *pile_a, int print)
+void	swap_a(t_pile *pile_a, int print)
 {
 	int	tmp;
 
@@ -25,7 +25,7 @@ void swap_a(t_pile *pile_a, int print)
 		ft_putendl("sa");
 }
 
-void swap_b(t_pile *pile_b, int print)
+void	swap_b(t_pile *pile_b, int print)
 {
 	int	tmp;
 
@@ -38,7 +38,7 @@ void swap_b(t_pile *pile_b, int print)
 		ft_putendl("sb");
 }
 
-void swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
+void	swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
 {
 	int	tmp;
 

@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void exec_line(char *line, t_p *piles)
+void	exec_line(char *line, t_p *piles)
 {
 	if (ft_strcmp(line, "sa") == 0)
 		swap_a(piles->p_a, 0);
@@ -38,4 +38,18 @@ void exec_line(char *line, t_p *piles)
 		swap_ab(piles->p_a, piles->p_b, 0);
 	else
 		ft_error();
+}
+
+int		check(t_p *piles)
+{
+	size_t	i;
+
+	i = 1;
+	while (i < piles->p_a->size - 1)
+	{
+		if (piles->p_a->pile[i] < piles->p_a->pile[i - 1] || piles->p_a->pile[i] > piles->p_a->pile[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

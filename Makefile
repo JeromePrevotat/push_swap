@@ -9,8 +9,8 @@ SRCS1 += ./src/checker.c
 SRCS1 += ./src/exec.c
 
 SRCS2 += ./src/push_swap.c
-SRCS2 += ./src/sort_int.c
-SRCS2 += ./src/reset.c
+SRCS2 += ./src/sort.c
+SRCS2 += ./src/min.c
 
 SRCS += ./src/parsing.c
 SRCS += ./src/push.c
@@ -18,8 +18,7 @@ SRCS += ./src/swap.c
 SRCS += ./src/rotate.c
 SRCS += ./src/reverse_rotate.c
 SRCS += ./src/utils.c
-
-SRCS2 += ./src/sort.c
+SRCS += ./src/free_ressources.c
 
 INC += ./inc/push_swap.h
 

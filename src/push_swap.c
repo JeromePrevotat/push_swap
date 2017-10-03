@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c		   	                                    :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_p		*piles;
 	t_pile	*pile_a;
@@ -28,36 +28,51 @@ int	main(int argc, char **argv)
 		arg = get_arg(argc, argv, arg);
 		if ((arg_tab = check_arg(arg)) == NULL)
 			ft_error();
-		if(!(piles = (t_p *)malloc(1 * sizeof(t_p)))
+		if (!(piles = (t_p *)malloc(1 * sizeof(t_p)))
 			|| !(pile_a = (t_pile *)malloc(1 * sizeof(t_pile)))
 			|| !(pile_b = (t_pile *)malloc(1 * sizeof(t_pile))))
 			return (ERROR);
 		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
 		push_swap(piles);
-		//printf("PILE A :\n");
-		//print_tab(piles->p_a);
 		free_ressources(piles, arg_tab, arg);
 	}
 	return (0);
 }
 
-/*void push_swap(t_p *piles)
+void	push_swap(t_p *piles)
 {
-	size_t	i;
+	int	pivot;
 
-	if (piles->p_a->size == 1)
+	get_min(piles);
+	if (small_pile(piles) == 1)
 		return ;
+	piles->index_to_sort = 1;
+	while ((size_t)piles->index_to_sort != piles->p_a->size)
+	{
+		move_min(piles, piles->p_a->size - piles->index_to_sort);
+		pivot = piles->p_a->pile[0];
+		push_b(piles, 1);
+		fill_b(piles, pivot);
+		move_min(piles, piles->p_a->size - piles->index_to_sort);
+		r_rotate_b(piles, 1);
+		empty_b(piles);
+		get_next_sort_index(piles);
+	}
+	move_min(piles, 0);
+	//printf("PILE A END :\n");
+	//print_tab(piles->p_a);
+}
+
+int		small_pile(t_p *piles)
+{
+	if (piles->p_a->size == 1)
+		return (TRUE);
 	if (piles->p_a->size == 2)
 	{
 		if (piles->p_a->pile[0] > piles->p_a->pile[1])
 			swap_a(piles->p_a, 1);
-		else
-			return ;
+		return (TRUE);
 	}
-	find_max(piles);
-	find_min(piles);
-	piles->min_index = 0;
-	i = 0;
-	sort_piles(piles);
-}*/
+	return (FALSE);
+}

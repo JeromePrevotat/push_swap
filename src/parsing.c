@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c	   	                                    :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,7 +24,7 @@ char	*get_arg(int argc, char **argv, char *arg)
 		total_size = total_size + ft_strlen(argv[i]);
 		i++;
 	}
-	if (!(arg = (char *)malloc(total_size *sizeof(char))))
+	if (!(arg = (char *)malloc(total_size * sizeof(char))))
 		return (NULL);
 	ft_memset(arg, '\0', total_size);
 	i = 1;
@@ -96,10 +96,10 @@ int		check_doublons(t_pile *pile)
 	size_t	j;
 
 	i = 0;
-	while(i < pile->size - 1)
+	while (i < pile->size - 1)
 	{
 		j = i + 1;
-		while(j < pile->size)
+		while (j < pile->size)
 		{
 			if (pile->pile[j] == pile->pile[i])
 				return (ERROR);

@@ -12,22 +12,6 @@
 
 #include "../inc/push_swap.h"
 
-/*void	rotate_a(t_pile *pile_a, int print)
-{
-	size_t	i;
-
-	if (!pile_a->pile || pile_a->size < 2)
-		return ;
-	i = 0;
-	while (i < pile_a->size - 1)
-	{
-		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
-		i++;
-	}
-	if (print == 1)
-		ft_putendl("ra");
-}*/
-
 void	rotate_a(t_p *piles, int print)
 {
 	size_t	i;
@@ -42,27 +26,10 @@ void	rotate_a(t_p *piles, int print)
 	}
 	if (print == 1)
 		ft_putendl("ra");
-	//ADDED
 	piles->min_index--;
 	if (piles->min_index < 0)
 		piles->min_index = piles->p_a->size - 1;
 }
-
-/*void	rotate_b(t_pile *pile_b, int print)
-{
-	size_t	i;
-
-	if (!pile_b->pile || pile_b->size < 2)
-		return ;
-	i = 0;
-	while (i < pile_b->size - 1)
-	{
-		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
-		i++;
-	}
-	if (print == 1)
-		ft_putendl("rb");
-}*/
 
 void	rotate_b(t_p *piles, int print)
 {
@@ -80,45 +47,22 @@ void	rotate_b(t_p *piles, int print)
 		ft_putendl("rb");
 }
 
-/*void	rotate_ab(t_pile *pile_a, t_pile *pile_b, int print)
-{
-	size_t	i;
-
-	i = 0;
-	if (!pile_a->pile || pile_a->size < 2 || !pile_b->pile || pile_b->size < 2)
-		return ;
-	while (i < pile_a->size - 1)
-	{
-		swap_int(&pile_a->pile[i], &pile_a->pile[i + 1]);
-		i++;
-	}
-	i = 0;
-	while (i < pile_b->size - 1)
-	{
-		swap_int(&pile_b->pile[i], &pile_b->pile[i + 1]);
-		i++;
-	}
-	if (print == 1)
-		ft_putendl("rr");
-}*/
-
 void	rotate_ab(t_p *piles, int print)
 {
 	size_t	i;
 
 	i = 0;
-	if (!piles->p_a->pile || piles->p_a->size < 2 || !piles->p_b->pile || piles->p_b->size < 2)
+	if (!piles->p_a->pile || piles->p_a->size < 2
+		|| !piles->p_b->pile || piles->p_b->size < 2)
 		return ;
 	while (i < piles->p_a->size - 1)
 	{
 		swap_int(&piles->p_a->pile[i], &piles->p_a->pile[i + 1]);
 		i++;
 	}
-	//ADDED
 	piles->min_index--;
 	if (piles->min_index < 0)
 		piles->min_index = piles->p_a->size - 1;
-	//END ADD
 	i = 0;
 	while (i < piles->p_b->size - 1)
 	{

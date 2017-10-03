@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c		   	                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_p		*piles;
 	t_pile	*pile_a;
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		arg = get_arg(argc, argv, arg);
 		if ((arg_tab = check_arg(arg)) == NULL)
 			ft_error();
-		if(!(piles = (t_p *)malloc(1 * sizeof(t_p)))
+		if (!(piles = (t_p *)malloc(1 * sizeof(t_p)))
 			|| !(pile_a = (t_pile *)malloc(1 * sizeof(t_pile)))
 			|| !(pile_b = (t_pile *)malloc(1 * sizeof(t_pile))))
 			return (ERROR);
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void checker(t_p *piles)
+void	checker(t_p *piles)
 {
 	char	*line;
 	int		instruction;

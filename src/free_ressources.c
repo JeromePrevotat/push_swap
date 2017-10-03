@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset.c		                                    :+:      :+:    :+:   */
+/*   free_ressources.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,17 +12,41 @@
 
 #include "../inc/push_swap.h"
 
-/*void reset(t_p *piles)
+void	free_ressources(t_p *piles, char **arg_tab, char *arg)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (piles->p_a->pile[i] != piles->max)
+	free_piles(piles);
+	free_arg(arg_tab);
+	if (arg != NULL)
+		free(arg);
+}
+
+void	free_piles(t_p *piles)
+{
+	if (piles == NULL)
+		return ;
+	if (piles->p_a->pile != NULL)
+		free(piles->p_a->pile);
+	if (piles->p_a != NULL)
+		free(piles->p_a);
+	if (piles->p_b->pile != NULL)
+		free(piles->p_b->pile);
+	if (piles->p_b != NULL)
+		free(piles->p_b);
+	free(piles);
+}
+
+void	free_arg(char **arg_tab)
+{
+	int	i;
+
+	i = 0;
+	while (arg_tab[i] != NULL)
+	{
+		free(arg_tab[i]);
 		i++;
-	if ((piles->p_a->size / 2) - i > 0)
-		while (piles->p_a->pile[piles->p_a->size - 1] != piles->max)
-			rotate_a(piles->p_a, 1);
-	else
-		while (piles->p_a->pile[piles->p_a->size - 1] != piles->max)
-			r_rotate_a(piles->p_a, 1);
-}*/
+	}
+	free(arg_tab);
+}
