@@ -14,17 +14,17 @@
 
 void	add_buffer(t_p *piles, char *instruction)
 {
-	if (ft_strlen(piles->buffer) + ft_strlen(instruction) + 1 > 256)
+	if (ft_strlen(piles->buffer) + ft_strlen(instruction) + 1 > BUFF)
 	{
 		print_buffer(piles);
-		ft_memset(piles->buffer, '\0', 256);
+		ft_memset(piles->buffer, '\0', BUFF);
 		ft_strcat(piles->buffer, instruction);
 	}
 	else
 		ft_strcat(piles->buffer, instruction);
 }
 
-void print_buffer(t_p *piles)
+void	print_buffer(t_p *piles)
 {
 	write(1, piles->buffer, ft_strlen(piles->buffer));
 }

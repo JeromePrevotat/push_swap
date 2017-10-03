@@ -47,7 +47,8 @@ int		check(t_p *piles)
 	i = 1;
 	while (i < piles->p_a->size - 1)
 	{
-		if (piles->p_a->pile[i] < piles->p_a->pile[i - 1] || piles->p_a->pile[i] > piles->p_a->pile[i + 1])
+		if (piles->p_a->pile[i] < piles->p_a->pile[i - 1]
+			|| piles->p_a->pile[i] > piles->p_a->pile[i + 1])
 			return (0);
 		i++;
 	}

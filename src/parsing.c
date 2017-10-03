@@ -81,6 +81,8 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 	i = 0;
 	while (i < pile_a->size)
 	{
+		if (check_int_range(arg_tab[i]) == FALSE)
+			return (ERROR);
 		pile_a->pile[i] = ft_atoi(arg_tab[i]);
 		i++;
 	}

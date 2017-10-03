@@ -15,6 +15,7 @@
 # define TRUE 1
 # define FALSE 0
 # define ERROR -1
+# define BUFF 2048
 
 # include <stdio.h>
 # include "../libft/libft.h"
@@ -33,7 +34,7 @@ typedef struct	s_p
 	int			min;
 	int			min_index;
 	int			index_to_sort;
-	char		buffer[256];
+	char		buffer[BUFF];
 }				t_p;
 
 //Push_swap
@@ -58,6 +59,11 @@ char	*get_arg(int argc, char **argv, char *arg);
 char	**check_arg(char *arg);
 int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
+
+//Check_range.c
+int		check_int_range(char *nb);
+int		check_int_min(char *nb);
+int		check_int_max(char *nb);
 
 //Buff.c
 void	add_buffer(t_p *piles, char *instruction);
