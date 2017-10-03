@@ -12,44 +12,45 @@
 
 #include "../inc/push_swap.h"
 
-void	swap_a(t_pile *pile_a, int print)
+void	swap_a(t_p *piles, int print)
 {
 	int	tmp;
 
-	if (!pile_a->pile || pile_a->size < 2)
+	if (!piles->p_a->pile || piles->p_a->size < 2)
 		return ;
-	tmp = pile_a->pile[0];
-	pile_a->pile[0] = pile_a->pile[1];
-	pile_a->pile[1] = tmp;
+	tmp = piles->p_a->pile[0];
+	piles->p_a->pile[0] = piles->p_a->pile[1];
+	piles->p_a->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("sa");
+		add_buffer(piles, "sa\n");
 }
 
-void	swap_b(t_pile *pile_b, int print)
+void	swap_b(t_p *piles, int print)
 {
 	int	tmp;
 
-	if (!pile_b->pile || pile_b->size < 2)
+	if (!piles->p_b->pile || piles->p_b->size < 2)
 		return ;
-	tmp = pile_b->pile[0];
-	pile_b->pile[0] = pile_b->pile[1];
-	pile_b->pile[1] = tmp;
+	tmp = piles->p_b->pile[0];
+	piles->p_b->pile[0] = piles->p_b->pile[1];
+	piles->p_b->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("sb");
+		add_buffer(piles, "sb\n");
 }
 
-void	swap_ab(t_pile *pile_a, t_pile *pile_b, int print)
+void	swap_ab(t_p *piles, int print)
 {
 	int	tmp;
 
-	if (!pile_a->pile || pile_a->size < 2 || !pile_b->pile || pile_b->size < 2)
+	if (!piles->p_a->pile || piles->p_a->size < 2
+		|| !piles->p_b->pile || piles->p_b->size < 2)
 		return ;
-	tmp = pile_a->pile[0];
-	pile_a->pile[0] = pile_a->pile[1];
-	pile_a->pile[1] = tmp;
-	tmp = pile_b->pile[0];
-	pile_b->pile[0] = pile_b->pile[1];
-	pile_b->pile[1] = tmp;
+	tmp = piles->p_a->pile[0];
+	piles->p_a->pile[0] = piles->p_a->pile[1];
+	piles->p_a->pile[1] = tmp;
+	tmp = piles->p_b->pile[0];
+	piles->p_b->pile[0] = piles->p_b->pile[1];
+	piles->p_b->pile[1] = tmp;
 	if (print == 1)
-		ft_putendl("ss");
+		add_buffer(piles, "ss\n");
 }

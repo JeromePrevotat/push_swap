@@ -15,9 +15,9 @@
 void	exec_line(char *line, t_p *piles)
 {
 	if (ft_strcmp(line, "sa") == 0)
-		swap_a(piles->p_a, 0);
+		swap_a(piles, 0);
 	else if (ft_strcmp(line, "sb") == 0)
-		swap_b(piles->p_b, 0);
+		swap_b(piles, 0);
 	else if (ft_strcmp(line, "ra") == 0)
 		rotate_a(piles, 0);
 	else if (ft_strcmp(line, "rb") == 0)
@@ -35,7 +35,7 @@ void	exec_line(char *line, t_p *piles)
 	else if (ft_strcmp(line, "rrr") == 0)
 		r_rotate_ab(piles, 0);
 	else if (ft_strcmp(line, "ss") == 0)
-		swap_ab(piles->p_a, piles->p_b, 0);
+		swap_ab(piles, 0);
 	else
 		ft_error();
 }

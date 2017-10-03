@@ -35,7 +35,7 @@ void	push_a(t_p *piles, int print)
 	piles->p_a->size++;
 	piles->min_index++;
 	if (print == 1)
-		ft_putendl("pa");
+		add_buffer(piles, "pa\n");
 }
 
 void	push_b(t_p *piles, int print)
@@ -61,5 +61,5 @@ void	push_b(t_p *piles, int print)
 	piles->p_b->size++;
 	piles->min_index--;
 	if (print == 1)
-		ft_putendl("pb");
+		add_buffer(piles, "pb\n");
 }

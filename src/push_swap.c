@@ -35,6 +35,8 @@ int		main(int argc, char **argv)
 		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
 		push_swap(piles);
+		if (ft_strlen(piles->buffer) != 0)
+			print_buffer(piles);
 		free_ressources(piles, arg_tab, arg);
 	}
 	return (0);
@@ -71,7 +73,7 @@ int		small_pile(t_p *piles)
 	if (piles->p_a->size == 2)
 	{
 		if (piles->p_a->pile[0] > piles->p_a->pile[1])
-			swap_a(piles->p_a, 1);
+			swap_a(piles, 1);
 		return (TRUE);
 	}
 	return (FALSE);

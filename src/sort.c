@@ -58,10 +58,10 @@ void	check_swap(t_p *piles)
 		&& piles->p_a->pile[0] > piles->p_a->pile[1]
 		&& piles->p_a->pile[1] != piles->min
 		&& piles->p_b->pile[0] < piles->p_b->pile[1])
-		swap_ab(piles->p_a, piles->p_b, 1);
+		swap_ab(piles, 1);
 	else if (piles->p_a->pile[0] > piles->p_a->pile[1]
 		&& piles->p_a->pile[1] != piles->min)
-		swap_a(piles->p_a, 1);
+		swap_a(piles, 1);
 	else if (piles->p_b->pile[0] < piles->p_b->pile[1])
-		swap_b(piles->p_b, 1);
+		swap_b(piles, 1);
 }

@@ -11,6 +11,7 @@ SRCS1 += ./src/exec.c
 SRCS2 += ./src/push_swap.c
 SRCS2 += ./src/sort.c
 SRCS2 += ./src/min.c
+SRCS += ./src/buff.c
 
 SRCS += ./src/parsing.c
 SRCS += ./src/push.c

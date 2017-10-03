@@ -25,7 +25,7 @@ void	rotate_a(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		ft_putendl("ra");
+		add_buffer(piles, "ra\n");
 	piles->min_index--;
 	if (piles->min_index < 0)
 		piles->min_index = piles->p_a->size - 1;
@@ -44,7 +44,7 @@ void	rotate_b(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		ft_putendl("rb");
+		add_buffer(piles, "rb\n");
 }
 
 void	rotate_ab(t_p *piles, int print)
@@ -70,5 +70,5 @@ void	rotate_ab(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		ft_putendl("rr");
+		add_buffer(piles, "rr\n");
 }

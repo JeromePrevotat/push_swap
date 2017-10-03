@@ -77,6 +77,7 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 		return (ERROR);
 	ft_memset(pile_a->pile, '\0', arg_size);
 	ft_memset(pile_b->pile, '\0', arg_size);
+	ft_memset(piles->buffer, '\0', 256);
 	i = 0;
 	while (i < pile_a->size)
 	{

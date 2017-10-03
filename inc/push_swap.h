@@ -33,6 +33,7 @@ typedef struct	s_p
 	int			min;
 	int			min_index;
 	int			index_to_sort;
+	char		buffer[256];
 }				t_p;
 
 //Push_swap
@@ -58,6 +59,10 @@ char	**check_arg(char *arg);
 int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
 
+//Buff.c
+void	add_buffer(t_p *piles, char *instruction);
+void	print_buffer(t_p *piles);
+
 //Checker.c
 void	checker(t_p *piles);
 
@@ -76,9 +81,9 @@ void	r_rotate_b(t_p *piles, int print);
 void	r_rotate_ab(t_p *piles, int print);
 
 //Swap.c
-void	swap_a(t_pile *pile_a, int print);
-void	swap_b(t_pile *pile_b, int print);
-void	swap_ab(t_pile *pile_a, t_pile *pile_b, int print);
+void	swap_a(t_p *piles, int print);
+void	swap_b(t_p *piles, int print);
+void	swap_ab(t_p *piles, int print);
 
 //Push.c
 void	push_a(t_p *piles, int print);
