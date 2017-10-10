@@ -42,56 +42,40 @@ int		check_int_range(char *nb)
 
 int		check_int_min(char *nb)
 {
-	int		i;
-	int		j;
-	char	*intmin;
+	int		part1;
+	int		part2;
+	char	c;
 
-	i = ft_strlen(nb);
-	j = i - 1;
-	intmin = "2147483648";
-	while (i >= 0)
-	{
-		if (ft_strcmp(&nb[i], &intmin[i]) > 0)
-		{
-			j = i - 1;
-			while (j >= 0)
-			{
-				if (ft_strcmp(&nb[j], &intmin[j]) > 0)
-					return (FALSE);
-				j--;
-			}
-		}
-		i--;
-	}
-	return (TRUE);
+	c = nb[0];
+	part1 = ft_atoi(&c);
+	part2 = ft_atoi(nb + 1);
+	if (part2 <= 147483648 && part1 <= 2)
+		return (TRUE);
+	else if (part2 <= 147483648 && part1 > 2)
+		return (FALSE);
+	else if (part2 > 147483648 && part1 < 2)
+		return (TRUE);
+	else if (part2 > 147483648 && part1 >= 2)
+		return (FALSE);
+	return (-1);
 }
 
 int		check_int_max(char *nb)
 {
-	int		i;
-	int		j;
-	char	*intmax;
+	int		part1;
+	int		part2;
+	char	c;
 
-	i = ft_strlen(nb);
-	j = i - 1;
-	intmax = "2147483647";
-	if (ft_strcmp(nb, intmax) <= 0)
+	c = nb[0];
+	part1 = ft_atoi(&c);
+	part2 = ft_atoi(nb + 1);
+	if (part2 <= 147483647 && part1 <= 2)
 		return (TRUE);
-	while (i >= 0)
-	{
-		if (ft_strncmp(&nb[i], &intmax[i], 1) > 0)
-		{
-			printf("TESTED 1 : >%c< // >%c< // %d\n", nb[i], intmax[i], ft_strncmp(&nb[i], &intmax[i], 1));
-			j = i - 1;
-			while (j >= 0)
-			{
-				printf("TESTED 2 : >%c< // >%c< // %d\n", nb[j], intmax[j], ft_strncmp(&nb[j], &intmax[j], 1));
-				if (ft_strncmp(&nb[j], &intmax[j], 1) < 0)
-					return (TRUE);
-				j--;
-			}
-		}
-		i--;
-	}
-	return (TRUE);
+	else if (part2 <= 147483647 && part1 > 2)
+		return (FALSE);
+	else if (part2 > 147483647 && part1 < 2)
+		return (TRUE);
+	else if (part2 > 147483647 && part1 >= 2)
+		return (FALSE);
+	return (-1);
 }
