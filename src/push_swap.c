@@ -47,21 +47,24 @@ void	push_swap(t_p *piles)
 	int	pivot;
 
 	get_min(piles);
-	if (small_pile(piles) == 1)
-		return ;
-	piles->index_to_sort = 1;
-	while ((size_t)piles->index_to_sort != piles->p_a->size)
+	if (piles->p_a->size <= 5)
+		small_pile(piles);
+	else
 	{
-		move_min(piles, piles->p_a->size - piles->index_to_sort);
-		pivot = piles->p_a->pile[0];
-		push_b(piles, 1);
-		fill_b(piles, pivot);
-		move_min(piles, piles->p_a->size - piles->index_to_sort);
-		r_rotate_b(piles, 1);
-		empty_b(piles);
-		get_next_sort_index(piles);
+		piles->index_to_sort = 1;
+		while ((size_t)piles->index_to_sort != piles->p_a->size)
+		{
+			move_min(piles, piles->p_a->size - piles->index_to_sort);
+			pivot = piles->p_a->pile[0];
+			push_b(piles, 1);
+			fill_b(piles, pivot);
+			move_min(piles, piles->p_a->size - piles->index_to_sort);
+			r_rotate_b(piles, 1);
+			empty_b(piles);
+			get_next_sort_index(piles);
+		}
+		move_min(piles, 0);
 	}
-	move_min(piles, 0);
 	//printf("PILE A END :\n");
 	//print_tab(piles->p_a);
 }
@@ -76,5 +79,9 @@ int		small_pile(t_p *piles)
 			swap_a(piles, 1);
 		return (TRUE);
 	}
+	if (piles->p_a->size == 3)
+		return (sort_three(piles, 1));
+	if (piles->p_a->size == 4 || piles->p_a->size == 5)
+		return (sort_five(piles, 1));
 	return (FALSE);
 }

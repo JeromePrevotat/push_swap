@@ -9,6 +9,7 @@ SRCS1 += ./src/checker.c
 SRCS1 += ./src/exec.c
 
 SRCS2 += ./src/push_swap.c
+SRCS2 += ./src/small_sort.c
 SRCS2 += ./src/sort.c
 SRCS2 += ./src/min.c
 
