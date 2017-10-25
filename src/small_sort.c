@@ -13,7 +13,7 @@
 #include "../inc/push_swap.h"
 
 
-int	sort_three(t_p *piles, int print)
+int		sort_three(t_p *piles, int print)
 {
 	get_max(piles);
 	if (piles->min_index == 1 && piles->max_index == 0)
@@ -46,11 +46,44 @@ int	sort_three(t_p *piles, int print)
 	return (TRUE);
 }
 
-int	sort_five(t_p *piles, int print)
+int		sort_five(t_p *piles, int print)
 {
-	(void)print;
-	(void)piles;
+	if (piles->p_a->size == 5)
+		push_b(piles, print);
+	if (piles->p_a->size == 4)
+		push_b(piles, print);
+	get_max(piles);
+	get_min(piles);
+	sort_three(piles, print);
+	cat_list(piles, print);
+	get_min(piles);
+	move_min(piles, 0);
 	return (TRUE);
+}
+
+void cat_list(t_p *piles, int print)
+{
+	size_t	end;
+
+	end = 0;
+	if (piles->p_b->size > 1 && piles->p_b->pile[0] < piles->p_b->pile[1])
+		swap_b(piles, print);
+	while (piles->p_b->size != 0)
+	{
+		if (end == piles->p_a->size)
+		{
+			push_a(piles, print);
+			push_a(piles, print);
+			return ;
+		}
+		if (piles->p_a->pile[0] > piles->p_b->pile[0])
+			push_a(piles, print);
+		else
+		{
+			rotate_a(piles, print);
+			end++;
+		}
+	}
 }
 
 void	get_max(t_p *piles)

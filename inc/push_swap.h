@@ -50,6 +50,8 @@ int		small_pile(t_p *piles);
 int		sort_three(t_p *piles, int print);
 int		sort_five(t_p *piles, int print);
 void	get_max(t_p *piles);
+void	cat_list(t_p *piles, int print);
+
 
 /*
 ** Sort.c
@@ -130,6 +132,7 @@ void	push_b(t_p *piles, int print);
 /*
 ** Utils.c
 */
+int		check_piles_sorted(t_p *piles);
 void	swap_int(int *a, int *b);
 void	ft_error(void);
 void	print_tab(t_pile *pile);

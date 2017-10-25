@@ -13,6 +13,20 @@
 #include "../inc/push_swap.h"
 #include <stdio.h>
 
+int		check_piles_sorted(t_p *piles)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < piles->p_a->size - 1)
+	{
+		if (piles->p_a->pile[i] > piles->p_a->pile[i + 1])
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}
+
 void	print_tab(t_pile *pile)
 {
 	size_t	i;
