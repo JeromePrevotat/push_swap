@@ -77,7 +77,20 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 		return (ERROR);
 	ft_memset(pile_a->pile, '\0', arg_size);
 	ft_memset(pile_b->pile, '\0', arg_size);
-	ft_memset(piles->buffer, '\0', 256);
+	ft_memset(piles->buffer, '\0', BUFF);
+	if (init_p_a(arg_tab, pile_a) == ERROR)
+		return (ERROR);
+	if (check_doublons(pile_a) == ERROR)
+		return (ERROR);
+	piles->p_a = pile_a;
+	piles->p_b = pile_b;
+	return (TRUE);
+}
+
+int		init_p_a(char **arg_tab, t_pile *pile_a)
+{
+	size_t	i;
+
 	i = 0;
 	while (i < pile_a->size)
 	{
@@ -86,10 +99,6 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 		pile_a->pile[i] = ft_atoi(arg_tab[i]);
 		i++;
 	}
-	if (check_doublons(pile_a) == ERROR)
-		return (ERROR);
-	piles->p_a = pile_a;
-	piles->p_b = pile_b;
 	return (TRUE);
 }
 

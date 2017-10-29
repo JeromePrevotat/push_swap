@@ -15,7 +15,7 @@
 # define TRUE 1
 # define FALSE 0
 # define ERROR -1
-# define BUFF 2048
+# define BUFF 256
 
 # include <stdio.h>
 # include "../libft/libft.h"
@@ -43,7 +43,7 @@ typedef struct	s_p
 */
 void	push_swap(t_p *piles);
 int		small_pile(t_p *piles);
-
+int		parse(int argc, char **argv);
 /*
 ** Small_sort.c
 */
@@ -51,7 +51,7 @@ int		sort_three(t_p *piles, int print);
 int		sort_five(t_p *piles, int print);
 void	get_max(t_p *piles);
 void	cat_list(t_p *piles, int print);
-
+int		sort_three_simple(t_p *piles, int print);
 
 /*
 ** Sort.c
@@ -77,6 +77,7 @@ char	*get_arg(int argc, char **argv, char *arg);
 char	**check_arg(char *arg);
 int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
+int		init_p_a(char **arg_tab, t_pile *pile_a);
 
 /*
 ** Check_range.c

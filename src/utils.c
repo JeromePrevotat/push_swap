@@ -53,16 +53,6 @@ void	swap_int(int *a, int *b)
 	}
 }
 
-/*void	swap_int(int *a, int *b)
-{
-	if (a && b)
-	{
-		*a = *a - *b;
-		*b = *a + *b;
-		*a = *b - *a;
-	}
-}*/
-
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);

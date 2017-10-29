@@ -31,12 +31,13 @@ int		check_int_range(char *nb)
 		j++;
 	if (j < 10)
 		return (TRUE);
-	if (j > 10)
-		return (FALSE);
 	if (j == 10)
+	{
 		if (minus == TRUE)
 			return (check_int_min(nb + i));
-		return (check_int_max(nb + i));
+		else
+			return (check_int_max(nb + i));
+	}
 	return (FALSE);
 }
 
