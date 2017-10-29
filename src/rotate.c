@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	rotate_a(t_p *piles, int print)
+void	rotate_a(t_p *piles, int print, int verbal)
 {
 	size_t	i;
 
@@ -25,13 +25,15 @@ void	rotate_a(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		add_buffer(piles, "ra\n");
+		ft_putendl("ra");
+	if (verbal == 1)
+		print_piles(piles);
 	piles->min_index--;
 	if (piles->min_index < 0)
 		piles->min_index = piles->p_a->size - 1;
 }
 
-void	rotate_b(t_p *piles, int print)
+void	rotate_b(t_p *piles, int print, int verbal)
 {
 	size_t	i;
 
@@ -44,10 +46,12 @@ void	rotate_b(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		add_buffer(piles, "rb\n");
+		ft_putendl("rb");
+	if (verbal == 1)
+		print_piles(piles);
 }
 
-void	rotate_ab(t_p *piles, int print)
+void	rotate_ab(t_p *piles, int print, int verbal)
 {
 	size_t	i;
 
@@ -70,5 +74,7 @@ void	rotate_ab(t_p *piles, int print)
 		i++;
 	}
 	if (print == 1)
-		add_buffer(piles, "rr\n");
+		ft_putendl("rr");
+	if (verbal == 1)
+		print_piles(piles);
 }

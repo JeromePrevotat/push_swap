@@ -12,13 +12,13 @@
 
 #include "../inc/push_swap.h"
 
-char	*get_arg(int argc, char **argv, char *arg)
+char	*get_arg(int argc, char **argv, char *arg, int start)
 {
 	int		i;
 	size_t	total_size;
 
-	i = 1;
-	total_size = argc;
+	i = start;
+	total_size = argc - start;
 	while (i < argc)
 	{
 		total_size = total_size + ft_strlen(argv[i]);
@@ -27,7 +27,7 @@ char	*get_arg(int argc, char **argv, char *arg)
 	if (!(arg = (char *)malloc(total_size * sizeof(char))))
 		return (NULL);
 	ft_memset(arg, '\0', total_size);
-	i = 1;
+	i = start;
 	while (i < argc)
 	{
 		arg = ft_strcat(arg, argv[i]);
@@ -77,7 +77,6 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 		return (ERROR);
 	ft_memset(pile_a->pile, '\0', arg_size);
 	ft_memset(pile_b->pile, '\0', arg_size);
-	ft_memset(piles->buffer, '\0', BUFF);
 	if (init_p_a(arg_tab, pile_a) == ERROR)
 		return (ERROR);
 	if (check_doublons(pile_a) == ERROR)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buff.c                                             :+:      :+:    :+:   */
+/*   verbal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprevota <jprevota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,18 @@
 
 #include "../inc/push_swap.h"
 
-void	add_buffer(t_p *piles, char *instruction)
+int		verbal_mode(char **argv)
 {
-	if (ft_strlen(piles->buffer) + ft_strlen(instruction) + 1 > BUFF)
-	{
-		print_buffer(piles);
-		ft_memset(piles->buffer, '\0', BUFF);
-		ft_strcat(piles->buffer, instruction);
-	}
-	else
-		ft_strcat(piles->buffer, instruction);
+	if (ft_strcmp(argv[1], "-v") == 0)
+		return (TRUE);
+	return (FALSE);
 }
 
-void	print_buffer(t_p *piles)
+void	print_piles(t_p *piles)
 {
-	write(1, piles->buffer, ft_strlen(piles->buffer));
+	ft_putendl("PILE A :");
+	print_tab(piles->p_a);
+	ft_putendl("PILE B :");
+	print_tab(piles->p_b);
+	ft_putchar('\n');
 }

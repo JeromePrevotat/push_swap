@@ -25,7 +25,7 @@ int		main(int argc, char **argv)
 		exit(0);
 	else
 	{
-		arg = get_arg(argc, argv, arg);
+		arg = get_arg(argc, argv, arg, 1);
 		if ((arg_tab = check_arg(arg)) == NULL)
 			ft_error();
 		if (!(piles = (t_p *)malloc(1 * sizeof(t_p)))

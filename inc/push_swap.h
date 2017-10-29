@@ -35,45 +35,45 @@ typedef struct	s_p
 	int			min;
 	int			min_index;
 	int			index_to_sort;
-	char		buffer[BUFF];
 }				t_p;
 
 /*
 ** Push_swap
 */
-void	push_swap(t_p *piles);
-int		small_pile(t_p *piles);
-int		parse(int argc, char **argv);
+void	push_swap(t_p *piles, int verbal);
+int		small_pile(t_p *piles, int verbal);
+int		parse(int argc, char **argv, int verbal);
+
 /*
 ** Small_sort.c
 */
-int		sort_three(t_p *piles, int print);
-int		sort_five(t_p *piles, int print);
+int		sort_three(t_p *piles, int print, int verbal);
+int		sort_five(t_p *piles, int print, int verbal);
 void	get_max(t_p *piles);
-void	cat_list(t_p *piles, int print);
-int		sort_three_simple(t_p *piles, int print);
+void	cat_list(t_p *piles, int print, int verbal);
+int		sort_three_simple(t_p *piles, int print, int verbal);
 
 /*
 ** Sort.c
 */
-void	fill_b(t_p *piles, int pivot);
-void	empty_b(t_p *piles);
+void	fill_b(t_p *piles, int pivot, int verbal);
+void	empty_b(t_p *piles, int verbal);
 void	get_next_sort_index(t_p *piles);
-void	check_swap(t_p *piles);
+void	check_swap(t_p *piles, int verbal);
 
 /*
 ** Min.c
 */
-void	move_min(t_p *piles, int index_to_place);
-void	move_min_up(t_p *piles, int index_to_place);
-void	move_min_down(t_p *piles, int index_to_place);
+void	move_min(t_p *piles, int index_to_place, int verbal);
+void	move_min_up(t_p *piles, int index_to_place, int verbal);
+void	move_min_down(t_p *piles, int index_to_place, int verbal);
 void	get_min(t_p *piles);
 int		exist_smallest(t_p *piles, int pivot);
 
 /*
 ** Parsing.c
 */
-char	*get_arg(int argc, char **argv, char *arg);
+char	*get_arg(int argc, char **argv, char *arg, int start);
 char	**check_arg(char *arg);
 int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles);
 int		check_doublons(t_pile *pile);
@@ -85,12 +85,6 @@ int		init_p_a(char **arg_tab, t_pile *pile_a);
 int		check_int_range(char *nb);
 int		check_int_min(char *nb);
 int		check_int_max(char *nb);
-
-/*
-** Buff.c
-*/
-void	add_buffer(t_p *piles, char *instruction);
-void	print_buffer(t_p *piles);
 
 /*
 ** Checker.c
@@ -106,29 +100,29 @@ int		check(t_p *piles);
 /*
 ** Rotate.c
 */
-void	rotate_a(t_p *piles, int print);
-void	rotate_b(t_p *piles, int print);
-void	rotate_ab(t_p *piles, int print);
+void	rotate_a(t_p *piles, int print, int verbal);
+void	rotate_b(t_p *piles, int print, int verbal);
+void	rotate_ab(t_p *piles, int print, int verbal);
 
 /*
 ** Reverse_rotate.c
 */
-void	r_rotate_a(t_p *piles, int print);
-void	r_rotate_b(t_p *piles, int print);
-void	r_rotate_ab(t_p *piles, int print);
+void	r_rotate_a(t_p *piles, int print, int verbal);
+void	r_rotate_b(t_p *piles, int print, int verbal);
+void	r_rotate_ab(t_p *piles, int print, int verbal);
 
 /*
 ** Swap.c
 */
-void	swap_a(t_p *piles, int print);
-void	swap_b(t_p *piles, int print);
-void	swap_ab(t_p *piles, int print);
+void	swap_a(t_p *piles, int print, int verbal);
+void	swap_b(t_p *piles, int print, int verbal);
+void	swap_ab(t_p *piles, int print, int verbal);
 
 /*
 ** Push.c
 */
-void	push_a(t_p *piles, int print);
-void	push_b(t_p *piles, int print);
+void	push_a(t_p *piles, int print, int verbal);
+void	push_b(t_p *piles, int print, int verbal);
 
 /*
 ** Utils.c
@@ -144,5 +138,11 @@ void	print_tab(t_pile *pile);
 void	free_ressources(t_p *piles, char **arg_tab, char *arg);
 void	free_piles(t_p *piles);
 void	free_arg(char **arg_tab);
+
+/*
+** Verbal.c
+*/
+int		verbal_mode(char **argv);
+void	print_piles(t_p *piles);
 
 #endif

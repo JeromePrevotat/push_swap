@@ -13,8 +13,8 @@ SRCS2 += ./src/small_sort.c
 SRCS2 += ./src/sort.c
 SRCS2 += ./src/min.c
 
+SRCS += ./src/verbal.c
 SRCS += ./src/check_range.c
-SRCS += ./src/buff.c
 SRCS += ./src/parsing.c
 SRCS += ./src/push.c
 SRCS += ./src/swap.c

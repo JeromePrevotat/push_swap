@@ -44,19 +44,19 @@ int		exist_smallest(t_p *piles, int pivot)
 	return (FALSE);
 }
 
-void	move_min(t_p *piles, int index_to_place)
+void	move_min(t_p *piles, int index_to_place, int verbal)
 {
 	int	i;
 
 	i = 0;
 	if (piles->min_index < index_to_place)
-		move_min_down(piles, index_to_place);
+		move_min_down(piles, index_to_place, verbal);
 	else
-		move_min_up(piles, index_to_place);
+		move_min_up(piles, index_to_place, verbal);
 	piles->min_index = index_to_place;
 }
 
-void	move_min_up(t_p *piles, int index_to_place)
+void	move_min_up(t_p *piles, int index_to_place, int verbal)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ void	move_min_up(t_p *piles, int index_to_place)
 		i = piles->min_index - index_to_place;
 		while (i > 0)
 		{
-			rotate_a(piles, 1);
+			rotate_a(piles, 1, verbal);
 			i--;
 		}
 	}
@@ -75,13 +75,13 @@ void	move_min_up(t_p *piles, int index_to_place)
 		i = piles->p_a->size - (piles->min_index - index_to_place);
 		while (i > 0)
 		{
-			r_rotate_a(piles, 1);
+			r_rotate_a(piles, 1, verbal);
 			i--;
 		}
 	}
 }
 
-void	move_min_down(t_p *piles, int index_to_place)
+void	move_min_down(t_p *piles, int index_to_place, int verbal)
 {
 	int	i;
 
@@ -91,7 +91,7 @@ void	move_min_down(t_p *piles, int index_to_place)
 		i = piles->p_a->size - (index_to_place - piles->min_index);
 		while (i > 0)
 		{
-			rotate_a(piles, 1);
+			rotate_a(piles, 1, verbal);
 			i--;
 		}
 	}
@@ -100,7 +100,7 @@ void	move_min_down(t_p *piles, int index_to_place)
 		i = index_to_place - piles->min_index;
 		while (i > 0)
 		{
-			r_rotate_a(piles, 1);
+			r_rotate_a(piles, 1, verbal);
 			i--;
 		}
 	}

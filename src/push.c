@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	push_a(t_p *piles, int print)
+void	push_a(t_p *piles, int print, int verbal)
 {
 	size_t	i;
 
@@ -35,10 +35,12 @@ void	push_a(t_p *piles, int print)
 	piles->p_a->size++;
 	piles->min_index++;
 	if (print == 1)
-		add_buffer(piles, "pa\n");
+		ft_putendl("pa");
+	if (verbal == 1)
+		print_piles(piles);
 }
 
-void	push_b(t_p *piles, int print)
+void	push_b(t_p *piles, int print, int verbal)
 {
 	size_t	i;
 
@@ -61,5 +63,7 @@ void	push_b(t_p *piles, int print)
 	piles->p_b->size++;
 	piles->min_index--;
 	if (print == 1)
-		add_buffer(piles, "pb\n");
+		ft_putendl("pb");
+	if (verbal == 1)
+		print_piles(piles);
 }
