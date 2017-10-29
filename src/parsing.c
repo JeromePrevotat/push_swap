@@ -61,7 +61,7 @@ char	**check_arg(char *arg)
 	return (arg_tab);
 }
 
-int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
+int		set_pile(char **arg_tab, t_pile *pilea, t_pile *pileb, t_p *p)
 {
 	size_t	i;
 	size_t	arg_size;
@@ -70,19 +70,19 @@ int		set_pile(char **arg_tab, t_pile *pile_a, t_pile *pile_b, t_p *piles)
 	arg_size = 0;
 	while (arg_tab[arg_size] != NULL)
 		arg_size++;
-	pile_a->size = arg_size;
-	pile_b->size = 0;
-	if (!(pile_a->pile = (int *)malloc(arg_size * sizeof(int)))
-		|| !(pile_b->pile = (int *)malloc(arg_size * sizeof(int))))
+	pilea->size = arg_size;
+	pileb->size = 0;
+	if (!(pilea->pile = (int *)malloc(arg_size * sizeof(int)))
+		|| !(pileb->pile = (int *)malloc(arg_size * sizeof(int))))
 		return (ERROR);
-	ft_memset(pile_a->pile, '\0', arg_size);
-	ft_memset(pile_b->pile, '\0', arg_size);
-	if (init_p_a(arg_tab, pile_a) == ERROR)
+	ft_memset(pilea->pile, '\0', arg_size);
+	ft_memset(pileb->pile, '\0', arg_size);
+	if (init_p_a(arg_tab, pilea) == ERROR)
 		return (ERROR);
-	if (check_doublons(pile_a) == ERROR)
+	if (check_doublons(pilea) == ERROR)
 		return (ERROR);
-	piles->p_a = pile_a;
-	piles->p_b = pile_b;
+	p->p_a = pilea;
+	p->p_b = pileb;
 	return (TRUE);
 }
 

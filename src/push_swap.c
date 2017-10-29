@@ -29,7 +29,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-void	push_swap(t_p *piles, int verbal)
+void	push_swap(t_p *piles, int verb)
 {
 	int	pivot;
 
@@ -37,26 +37,24 @@ void	push_swap(t_p *piles, int verbal)
 	if (check_piles_sorted(piles) == FALSE)
 	{
 		if (piles->p_a->size <= 5)
-			small_pile(piles, verbal);
+			small_pile(piles, verb);
 		else
 		{
 			piles->index_to_sort = 1;
 			while ((size_t)piles->index_to_sort != piles->p_a->size)
 			{
-				move_min(piles, piles->p_a->size - piles->index_to_sort, verbal);
+				move_min(piles, piles->p_a->size - piles->index_to_sort, verb);
 				pivot = piles->p_a->pile[0];
-				push_b(piles, 1, verbal);
-				fill_b(piles, pivot, verbal);
-				move_min(piles, piles->p_a->size - piles->index_to_sort, verbal);
-				r_rotate_b(piles, 1, verbal);
-				empty_b(piles, verbal);
+				push_b(piles, 1, verb);
+				fill_b(piles, pivot, verb);
+				move_min(piles, piles->p_a->size - piles->index_to_sort, verb);
+				r_rotate_b(piles, 1, verb);
+				empty_b(piles, verb);
 				get_next_sort_index(piles);
 			}
-			move_min(piles, 0, verbal);
+			move_min(piles, 0, verb);
 		}
 	}
-	//printf("PILE A END :\n");
-	//print_tab(piles->p_a);
 }
 
 int		parse(int argc, char **argv, int verbal)
