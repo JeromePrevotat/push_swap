@@ -31,7 +31,7 @@ char	*get_arg(int argc, char **argv, char *arg, int start)
 	while (i < argc)
 	{
 		arg = ft_strcat(arg, argv[i]);
-		arg = ft_strcat(arg, " ");
+		arg = (i == argc - 1) ? ft_strcat(arg, "\0") : ft_strcat(arg, " ");
 		i++;
 	}
 	return (arg);

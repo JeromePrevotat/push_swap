@@ -35,6 +35,7 @@ int		main(int argc, char **argv)
 		if (set_pile(arg_tab, pile_a, pile_b, piles) == ERROR)
 			ft_error();
 	}
+	piles->min_index = 0;
 	checker(piles);
 	free_ressources(piles, arg_tab, arg);
 	return (0);
